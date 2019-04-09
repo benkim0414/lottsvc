@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'hack/docker/Dockerfile', '-t', 'gcr.io/lott-235905/lottsvc', '.']
+  args: ['build', '-f', 'hack/docker/Dockerfile', '-t', 'asia.gcr.io/lott-235905/lottsvc', '.']
 images:
-- 'gcr.io/lott-235905/lottsvc'
+- 'asia.gcr.io/lott-235905/lottsvc'
