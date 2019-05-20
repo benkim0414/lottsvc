@@ -14,6 +14,7 @@ import (
 	"github.com/benkim0414/lott/pkg/service"
 	"github.com/benkim0414/lott/pkg/transport"
 	"github.com/go-kit/kit/log"
+	"github.com/gorilla/handlers"
 )
 
 func main() {
@@ -50,7 +51,7 @@ func main() {
 
 	go func() {
 		logger.Log("transport", "HTTP", "addr", *httpAddr)
-		errs <- http.ListenAndServe(*httpAddr, httpHandler)
+		errs <- http.ListenAndServe(*httpAddr, handlers.CORS()(httpHandler))
 	}()
 	logger.Log("exit", <-errs)
 }
